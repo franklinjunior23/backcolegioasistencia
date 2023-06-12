@@ -4,8 +4,8 @@ require('dotenv').config()
 const PORT = process.env.PORT || 5000
 
 // traer rutas
-const docente = require("./routes/docente.routes");
-const asistencia = require("./routes/asistencia.routes");
+const docente = require("./routes/Docente.routes.js");
+const asistencia = require("./routes/Asistencia.routes");
 
 
 // middleware configuracion 
