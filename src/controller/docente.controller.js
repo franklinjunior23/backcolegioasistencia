@@ -26,11 +26,12 @@ const getDocente = async (req, res) => {
 const posDocente = async (req, res) => {
 
   try {
-    const { nombre, password, curso } = req.body;
+    const { nombre,usuario, password, curso } = req.body;
     const contraseña = bcrypt.hashSync(password, 4);
   
     const result = await Docente.create({
       id: faker.database.mongodbObjectId(),
+      usuario,
       nombre,
       password: contraseña,
       curso,
