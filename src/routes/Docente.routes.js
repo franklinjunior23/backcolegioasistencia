@@ -1,13 +1,15 @@
-const Docente = require('express').Router();
-import { getDocentes, getDocente, posDocente, updaDocente, deleteDocente, IniciarSeccion } from '../controller/docente.controller';
 
 
-Docente.get('/docentes',getDocentes)
-Docente.get('/docente/:id',getDocente)git 
-Docente.post('/docentes',posDocente)
-Docente.put('/docente/:id',updaDocente)
-Docente.delete('/docente/:id',deleteDocente)
+const docente = require('express').Router();
+const { getDocentes, getDocente, posDocente, updaDocente, deleteDocente, IniciarSeccion }= require('../controller/docente.controller');
 
-Docente.post('/iniciarseccion',IniciarSeccion)
 
-export default Docente
+docente.get('/docentes',getDocentes)
+docente.get('/docente/:id',getDocente)
+docente.post('/docentes',posDocente)
+docente.put('/docente/:id',updaDocente)
+docente.delete('/docente/:id',deleteDocente)
+
+docente.post('/iniciarseccion',IniciarSeccion)
+
+module.exports = docente
