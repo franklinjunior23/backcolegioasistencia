@@ -24,16 +24,22 @@ const getDocente = async (req, res) => {
   res.json(result);
 };
 const posDocente = async (req, res) => {
-  const { nombre, password, curso } = req.body;
-  const contraseña = bcrypt.hashSync(password, 4);
 
-  const result = await Docente.create({
-    id: faker.database.mongodbObjectId(),
-    nombre,
-    password: contraseña,
-    curso,
-  });
-  res.json({ msg: "Usuario Creado exitosamente" });
+  try {
+    const { nombre, password, curso } = req.body;
+    const contraseña = bcrypt.hashSync(password, 4);
+  
+    const result = await Docente.create({
+      id: faker.database.mongodbObjectId(),
+      nombre,
+      password: contraseña,
+      curso,
+    });
+    res.json({ msg: "Usuario Creado exitosamente" });
+  } catch (error) {
+    res.json(error)
+  }
+ 
 };
 
 const updaDocente = async (req, res) => {
