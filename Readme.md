@@ -1,11 +1,22 @@
+<div align="center">
 ## Backend ( API REST ) Control de asistencia de docentes 
 
 <img src="https://1.bp.blogspot.com/-0R9ggrRQruU/V9iMiS6bBeI/AAAAAAAA0pk/eC_38nE9-vk2cDw-wBMX2bAmNM19SfzBgCLcB/s1600/ie-1218-san-luis-maria-de-montfort-insignia.png" width="250"  style="border-radius: 35px; margin-bottom:30px" >
 
 
 En este repositorio se encuentra el código del backend para el proyecto de control de asistencia de docentes del Colegio San Luis María de Montfort. El backend está desarrollado en TypeScript y utiliza diversas tecnologías como Express.js, Sequelize (para la interacción con la base de datos), entre otras.
-[Franxx](https://github.com/franklinjunior23)
+
+Desarrollador : [Franxx](https://github.com/franklinjunior23)
+</div>
 ## Dependencias --
+
+<div align="center">
+
+![](https://img.shields.io/badge/Contributions-Welcome-brightgreen.svg)
+![](https://img.shields.io/badge/Maintained%3F-Yes-brightgreen.svg)
+
+</div>
+
 * Node js  
 * Javascript
 * Express
