@@ -5,7 +5,7 @@ const { getDocentes, getDocente, posDocente, updaDocente, deleteDocente, Iniciar
 
 
 docente.get('/docentes',getDocentes)
-docente.get('/docente/:id',getDocente)
+docente.get('/docentes/:id',getDocente)
 docente.post('/docentes',posDocente)
 docente.put('/docente/:id',updaDocente)
 docente.delete('/docente/:id',deleteDocente)

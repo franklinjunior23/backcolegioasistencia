@@ -3,8 +3,9 @@ const cors = require('cors');
 require('dotenv').config()
 const PORT = process.env.PORT || 5000
 
+const newLocal = "./routes/Docente.routes.js";
 // traer rutas
-const docente = require("./routes/Docente.routes.js");
+const docente = require(newLocal);
 const asistencia = require("./routes/Asistencia.routes");
 
 
