@@ -7,9 +7,9 @@ const { getDocentes, getDocente, posDocente, updaDocente, deleteDocente, Iniciar
 docente.get('/docentes',getDocentes)
 docente.get('/docentes/:id',getDocente)
 docente.post('/docentes',posDocente)
-docente.put('/docente/:id',updaDocente)
-docente.delete('/docente/:id',deleteDocente)
+docente.put('/docentes/:id',updaDocente)
+docente.delete('/docentes/:id',deleteDocente)
 
-docente.post('/iniciarseccion',IniciarSeccion)
+docente.post('/SignIn',IniciarSeccion)
 
 module.exports = docente

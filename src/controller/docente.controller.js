@@ -44,9 +44,10 @@ const posDocente = async (req, res) => {
 };
 
 const updaDocente = async (req, res) => {
-  const id = req.params.id;
+  try {
+    const id = req.params.id;
   const { nombre, curso } = req.body;
-  const result = Docente.update(
+  const result = await Docente.update(
     {
       nombre,
       curso,
@@ -58,6 +59,10 @@ const updaDocente = async (req, res) => {
     }
   );
   res.json({ msg: "Se actualizo de manera correcta" });
+  } catch (error) {
+    res.status(404).json(error)
+  }
+  
 };
 
 const deleteDocente = async (req, res) => {
@@ -71,8 +76,9 @@ const deleteDocente = async (req, res) => {
 };
 
 const IniciarSeccion = async (req, res) => {
-  const { usuario, contraseña } = req.body;
-  const data = await Docente.findAll({
+  try {
+    const { usuario, contraseña } = req.body;
+  const data = await Docente.findOne({
     where: {
       usuario,
     },
@@ -80,16 +86,18 @@ const IniciarSeccion = async (req, res) => {
   if (data.length == 0) {
     res.status(201).json({ msg: "Ingrese de manera correcta sus datos" });
   } else {
-    const { password, id, nombre } = data[0].dataValues;
+    const { password, id, nombre } = data;
     const verify = await bcrypt.compare(contraseña, password);
     if (verify == true) {
       res
         .status(200)
-        .json({ msg: "Datos Correctos", persona: id, nombre: nombre });
-        console.log("usuario correcto .")
+        .json({ loged:true, msg: "Datos Correctos", persona: id, nombre: nombre });
     } else {
       res.status(201).json({ msg: "Ingrese de manera correcta su contraseña" });
     }
+  }
+  } catch (error) {
+    res.status(404).json({error,msg:'Algo salio mal'})
   }
 };
 

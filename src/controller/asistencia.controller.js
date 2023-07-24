@@ -101,4 +101,4 @@ const iniciarSeccion = async(req, res) =>{
 
 }
 
-module.exports = { marcacionDocente , iniciarSeccion};
+module.exports = { marcacionDocente , };
