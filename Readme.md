@@ -1,7 +1,7 @@
 <div align="center">
 ## Backend ( API REST ) Control de asistencia de docentes 
 
-<img src="https://1.bp.blogspot.com/-0R9ggrRQruU/V9iMiS6bBeI/AAAAAAAA0pk/eC_38nE9-vk2cDw-wBMX2bAmNM19SfzBgCLcB/s1600/ie-1218-san-luis-maria-de-montfort-insignia.png" width="250"  style="border-radius: 35px; margin-bottom:30px" >
+<img src="https://1.bp.blogspot.com/-0R9ggrRQruU/V9iMiS6bBeI/AAAAAAAA0pk/eC_38nE9-vk2cDw-wBMX2bAmNM19SfzBgCLcB/s1600/ie-1218-san-luis-maria-de-montfort-insignia.png" width="250"  style="border-radius: 35px; margin-bottom:30px;display:block;" >
 
 
 En este repositorio se encuentra el código del backend para el proyecto de control de asistencia de docentes del Colegio San Luis María de Montfort. El backend está desarrollado en TypeScript y utiliza diversas tecnologías como Express.js, Sequelize (para la interacción con la base de datos), entre otras.
@@ -35,9 +35,9 @@ Para ejecutar este proyecto localmente, sigue los siguientes pasos:
 
 `cd tu-proyecto`
 
-3. Instala las dependencias requeridas ejecutando el siguiente 
+3. Instala las dependencias requeridas ejecutando el siguiente comando:
 
-comando:`npm install`
+`npm install`
 
 4. Configura el archivo de entorno: 
 
