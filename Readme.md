@@ -25,7 +25,7 @@ Desarrollador : [Franxx](https://github.com/franklinjunior23)
 * Facker
 
 ## Instalacion --
-```bash
+
 Para ejecutar este proyecto localmente, sigue los siguientes pasos:
 1. Clona este repositorio en tu máquina local usando el siguiente comando:
 
@@ -46,6 +46,7 @@ Crea un archivo .env en el directorio raíz del proyecto y configura las variabl
 5. Inicia el servidor: 
 
 `npm start`
-```
+
+
 ## Endopoints documentados 
  `En Postman`
