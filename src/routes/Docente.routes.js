@@ -1,7 +1,7 @@
 
 
 const docente = require('express').Router();
-const { getDocentes, getDocente, posDocente, updaDocente, deleteDocente, IniciarSeccion }= require('../controller/docente.controller');
+const { getDocentes, getDocente, posDocente, updaDocente, deleteDocente, IniciarSesion }= require('../controller/docente.controller');
 
 
 docente.get('/docentes',getDocentes)
@@ -10,6 +10,6 @@ docente.post('/docentes',posDocente)
 docente.put('/docentes/:id',updaDocente)
 docente.delete('/docentes/:id',deleteDocente)
 
-docente.post('/SignIn',IniciarSeccion)
+docente.post('/SignIn',IniciarSesion)
 
 module.exports = docente

@@ -28,29 +28,48 @@ const horadia = () => {
   const horadeldia = `${hours}:${minutes} ${ampm}`;
   return horadeldia;
 };
+const MarcacionesDocentes = async(req,res)=>{
+  try {
+    const {data} = req.user;
+    console.log(data)
+  const busqueda = await Asistencia.findAll({
+    where:{
+      id_docente:data?.id
+    }
+  })
+  res.json(busqueda)
+  console.log(data)
+  } catch (error) {
+    console.log(error)
+    res.json({msg:'error en el servidor'})
+  }
+}
+
+
 
 const marcacionDocente = async (req, res) => {
   try {
+    const {fecha,hora} = req.body
+    const { data } = req.user;
     const fecha_hoy = fechadia();
     const hora_actual = horadia();
-    const id = req.params.id;
     const busqueda = await Asistencia.findAll({
       where: {
-        id_docente: id,
+        id_docente: data.id,
       },
     });
     const busqueda_actual = await Asistencia.findAll({
         where: {
-          id_docente: id,
-          dia: fecha_hoy,
+          id_docente: data.id,
+          dia: fecha,
         },
       });
 
     if (busqueda == "") {
       const result = await Asistencia.create({
-        id_docente: id,
-        dia: fecha_hoy,
-        h_entr: hora_actual,
+        id_docente: data.id,
+        dia: fecha,
+        h_entr: hora,
       });
 
       res.json({ msg: "Entrada Registrada correctamente" });
@@ -58,9 +77,9 @@ const marcacionDocente = async (req, res) => {
      
       if (busqueda_actual == "") {
         const result = await Asistencia.create({
-          id_docente: id,
-          dia: fecha_hoy,
-          h_entr: hora_actual,
+          id_docente: data.id,
+          dia: fecha,
+          h_entr: hora,
         });
         res.json({ msg: "Entrada Registrada Correctamente" });
       } else {
@@ -68,12 +87,12 @@ const marcacionDocente = async (req, res) => {
         if ( hr_sali == undefined || hr_sali == "" ) {
             const result = await Asistencia.update(
                 {
-                  h_sali: hora_actual,
+                  h_sali: hora,
                 },
                 {
                   where: {
-                    id_docente: id,
-                    dia: fecha_hoy,
+                    id_docente: data.id,
+                    dia: fecha,
                   },
                 }
               );
@@ -94,11 +113,34 @@ const marcacionDocente = async (req, res) => {
   }
 };
 
+const VerificarAsistencia =async(req, res)=>{
+  try {
+    const { fecha } = req.body;
+    const { data } = req.user;
+    const buscar = await Asistencia.findAll({
+      where: {
+        id_docente: data.id,
+        dia: fecha,
+      },
+    });
+    
+    if (buscar.length > 0) {
+      // Se encontraron registros que coinciden con las condiciones
+      return res.json({ encontro: true, horario: buscar });
+    }
+    
+    // No se encontraron registros que coincidan con las condiciones
+    return res.json({ encontro: false });
+  } catch (error) {
+    console.log(error)
+    res.json(error)
+  }
 
+}
 const iniciarSeccion = async(req, res) =>{
   const bad = req.body;
   res.status(202).json(bad)
 
 }
 
-module.exports = { marcacionDocente , };
+module.exports = { marcacionDocente ,VerificarAsistencia,MarcacionesDocentes };
